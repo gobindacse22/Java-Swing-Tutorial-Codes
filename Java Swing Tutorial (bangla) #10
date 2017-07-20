@@ -1,0 +1,104 @@
+package sproject;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JLabel;
+
+public class D extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField t1;
+	private JTextField t2;
+	private JTextField ans;
+	private JLabel lblNewLabel;
+	private JLabel lblInput;
+	private JLabel lblOutput;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					D frame = new D();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public D() {
+		setTitle("D");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(450, 300);
+		setLocationRelativeTo(null);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		t1 = new JTextField();
+		t1.setHorizontalAlignment(SwingConstants.CENTER);
+		t1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		t1.setBounds(30, 60, 180, 40);
+		contentPane.add(t1);
+		t1.setColumns(10);
+		
+		t2 = new JTextField();
+		t2.setHorizontalAlignment(SwingConstants.CENTER);
+		t2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		t2.setColumns(10);
+		t2.setBounds(230, 60, 180, 40);
+		contentPane.add(t2);
+		
+		JButton btnNewButton = new JButton("calculate");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int x  = Integer.parseInt(t1.getText());
+				int y  = Integer.parseInt(t2.getText());
+				int z = x+y;
+				ans.setText(String.valueOf(z));
+			}
+		});
+		btnNewButton.setBounds(135, 110, 180, 40);
+		contentPane.add(btnNewButton);
+		
+		ans = new JTextField();
+		ans.setHorizontalAlignment(SwingConstants.CENTER);
+		ans.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		ans.setColumns(10);
+		ans.setBounds(30, 200, 380, 40);
+		contentPane.add(ans);
+		
+		lblNewLabel = new JLabel("Input 1");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(30, 35, 180, 15);
+		contentPane.add(lblNewLabel);
+		
+		lblInput = new JLabel("Input 2");
+		lblInput.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInput.setBounds(230, 35, 180, 15);
+		contentPane.add(lblInput);
+		
+		lblOutput = new JLabel("output");
+		lblOutput.setHorizontalAlignment(SwingConstants.CENTER);
+		lblOutput.setBounds(130, 175, 180, 20);
+		contentPane.add(lblOutput);
+	}
+
+}
