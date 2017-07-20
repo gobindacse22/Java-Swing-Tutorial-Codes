@@ -1,0 +1,85 @@
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
+public class C extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					C frame = new C();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public C() {
+		setTitle("C");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(450, 300);
+		setLocationRelativeTo(null);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(70, 140, 300, 40);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Name");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText("your name");
+			}
+		});
+		btnNewButton.setBounds(10, 30, 120, 30);
+		contentPane.add(btnNewButton);
+		
+		JButton btnAge = new JButton("Age");
+		btnAge.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText("your age");
+			}
+		});
+		btnAge.setBounds(140, 30, 120, 30);
+		contentPane.add(btnAge);
+		
+		JButton btnPhnNumber = new JButton("phn number");
+		btnPhnNumber.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText("your phone number");
+			}
+		});
+		btnPhnNumber.setBounds(270, 30, 120, 30);
+		contentPane.add(btnPhnNumber);
+		
+		JLabel lblNewLabel = new JLabel("Output");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(70, 115, 300, 20);
+		contentPane.add(lblNewLabel);
+	}
+}
