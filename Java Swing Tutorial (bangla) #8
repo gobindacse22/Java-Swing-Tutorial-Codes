@@ -1,6 +1,5 @@
+package homework;
 
-
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,59 +7,56 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-import javax.swing.SwingConstants;
 
-public class B extends JFrame {
-	private JPanel contentPane;
-	private JTextField txtHelloWorld;
+public class HomeworkB {
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					B frame = new B();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
-	public B() {
-		setTitle("B");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(450, 300);
-		setLocationRelativeTo(null);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
 
-		txtHelloWorld = new JTextField("Hello World");
-		txtHelloWorld.setHorizontalAlignment(SwingConstants.CENTER);
-		txtHelloWorld.setBounds(70, 50, 300, 40);
-		contentPane.add(txtHelloWorld);
-		txtHelloWorld.setColumns(10);
+		JFrame frame = new JFrame();
+		frame.setTitle("B");
+		frame.setSize(450,300);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
 
-		JButton btnNewButton = new JButton("click me");
-		btnNewButton.addActionListener(new ActionListener() {
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		
+		
+		JTextField textField  = new JTextField();
+		textField.setText("Hello world!");
+		textField.setBounds(70, 50, 300, 40); 
+		textField.setHorizontalAlignment(JTextField.CENTER);
+		panel.add(textField);
+		
+		JButton button = new JButton();
+		button.setText("click me");
+		button.setBounds(150, 130, 130, 30);
+		button.addActionListener(new ActionListener() {
+			
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				if (txtHelloWorld.getText().length() == 0) {
-					txtHelloWorld.setText("Hello World");
-				} else {
-					txtHelloWorld.setText("");
+				
+				String str = textField.getText();
+				
+				if(str.length() == 0){
+					textField.setText("Hello world!");
+				}else {
+					textField.setText("");
 				}
+				
+				
 			}
 		});
-		btnNewButton.setBounds(150, 130, 130, 30);
-		contentPane.add(btnNewButton);
+		panel.add(button);
+		
+		
+		
+		frame.setContentPane(panel);
+		frame.setVisible(true);
+		
+		
 	}
+
 }
