@@ -1,85 +1,72 @@
+package homework;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class C extends JFrame {
+public class HomeworkC {
 
-	private JPanel contentPane;
-	private JTextField textField;
-
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					C frame = new C();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+
+		JFrame frame = new JFrame("C");
+		frame.setSize(450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
+
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+
+		JTextField textField = new JTextField();
+		textField.setBounds(70, 140, 300, 40);
+		panel.add(textField);
+
+		JButton btn1 = new JButton("Name");
+		btn1.setBounds(10, 30, 120, 30);
+		btn1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText("show your name");
 			}
 		});
+		panel.add(btn1);
+
+		JButton btn2 = new JButton("AGE");
+		btn2.setBounds(140, 30, 120, 30);
+		btn2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText("show your age");
+			}
+		});
+		panel.add(btn2);
+
+		JButton btn3 = new JButton("Phn Num");
+		btn3.setBounds(270, 30, 120, 30);
+		btn3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText("show your phn number");
+			}
+		});
+		panel.add(btn3);
+
+		JLabel label = new JLabel("output");
+		label.setBounds(70, 115, 300, 20);
+		label.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(label);
+
+		frame.setContentPane(panel);
+		frame.setVisible(true);
+
 	}
 
-	/**
-	 * Create the frame.
-	 */
-	public C() {
-		setTitle("C");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(450, 300);
-		setLocationRelativeTo(null);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		textField = new JTextField();
-		textField.setBounds(70, 140, 300, 40);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		JButton btnNewButton = new JButton("Name");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				textField.setText("your name");
-			}
-		});
-		btnNewButton.setBounds(10, 30, 120, 30);
-		contentPane.add(btnNewButton);
-		
-		JButton btnAge = new JButton("Age");
-		btnAge.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				textField.setText("your age");
-			}
-		});
-		btnAge.setBounds(140, 30, 120, 30);
-		contentPane.add(btnAge);
-		
-		JButton btnPhnNumber = new JButton("phn number");
-		btnPhnNumber.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				textField.setText("your phone number");
-			}
-		});
-		btnPhnNumber.setBounds(270, 30, 120, 30);
-		contentPane.add(btnPhnNumber);
-		
-		JLabel lblNewLabel = new JLabel("Output");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(70, 115, 300, 20);
-		contentPane.add(lblNewLabel);
-	}
 }
