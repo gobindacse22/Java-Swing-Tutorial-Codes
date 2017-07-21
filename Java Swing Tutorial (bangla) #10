@@ -1,104 +1,88 @@
+package homework;
 
-
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.Font;
-import javax.swing.SwingConstants;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class D extends JFrame {
-
-	private JPanel contentPane;
-	private JTextField t1;
-	private JTextField t2;
-	private JTextField ans;
-	private JLabel lblNewLabel;
-	private JLabel lblInput;
-	private JLabel lblOutput;
-
-	/**
-	 * Launch the application.
-	 */
+public class HomeworkD {
+	
+	
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					D frame = new D();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+		
+		JFrame frame = new JFrame("D");
+		frame.setSize(450,300);
+		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		
+		JLabel label1 = new JLabel("Input 1");
+		label1.setBounds(30, 35, 180, 15);
+		//label1.setBorder(new LineBorder(Color.BLACK));
+		label1.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(label1);
+		
+		JLabel label2 = new JLabel("Input 2");
+		label2.setBounds(230, 35, 180, 15);
+		//label2.setBorder(new LineBorder(Color.BLACK));
+		label2.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(label2);
+		
+		
+		JTextField textField1 = new JTextField();
+		textField1.setBounds(30, 60, 180, 40);
+		textField1.setHorizontalAlignment(JTextField.CENTER);
+		textField1.setFont(new Font("arial", Font.BOLD, 25));
+		panel.add(textField1);
+		
 
-	/**
-	 * Create the frame.
-	 */
-	public D() {
-		setTitle("D");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(450, 300);
-		setLocationRelativeTo(null);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		JTextField textField2 = new JTextField();
+		textField2.setBounds(230, 60, 180, 40);
+		textField2.setHorizontalAlignment(JTextField.CENTER);
+		textField2.setFont(new Font("arial", Font.BOLD, 25));
+		panel.add(textField2);
 		
-		t1 = new JTextField();
-		t1.setHorizontalAlignment(SwingConstants.CENTER);
-		t1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		t1.setBounds(30, 60, 180, 40);
-		contentPane.add(t1);
-		t1.setColumns(10);
+		JTextField ansTextField = new JTextField();
+		ansTextField.setBounds(30, 200, 380, 40);
+		ansTextField.setHorizontalAlignment(JTextField.CENTER);
+		ansTextField.setFont(new Font("arial", Font.BOLD, 25));
+		ansTextField.setEditable(false);
+		panel.add(ansTextField);
 		
-		t2 = new JTextField();
-		t2.setHorizontalAlignment(SwingConstants.CENTER);
-		t2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		t2.setColumns(10);
-		t2.setBounds(230, 60, 180, 40);
-		contentPane.add(t2);
-		
-		JButton btnNewButton = new JButton("calculate");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton button = new JButton("calculate");
+		button.setBounds(135, 110, 180, 40);
+		button.addActionListener(new ActionListener() {
+			
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				int x  = Integer.parseInt(t1.getText());
-				int y  = Integer.parseInt(t2.getText());
-				int z = x+y;
-				ans.setText(String.valueOf(z));
+				int x = Integer.parseInt(textField1.getText());
+				int y = Integer.parseInt(textField2.getText());
+				int ans = x+y;
+				ansTextField.setText(String.valueOf(ans));
 			}
 		});
-		btnNewButton.setBounds(135, 110, 180, 40);
-		contentPane.add(btnNewButton);
+		panel.add(button);
 		
-		ans = new JTextField();
-		ans.setHorizontalAlignment(SwingConstants.CENTER);
-		ans.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		ans.setColumns(10);
-		ans.setBounds(30, 200, 380, 40);
-		contentPane.add(ans);
+		JLabel label3 = new JLabel("Output");
+		label3.setBounds(130,175,180,20);
+		//label3.setBorder(new LineBorder(Color.BLACK));
+		label3.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(label3);
 		
-		lblNewLabel = new JLabel("Input 1");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(30, 35, 180, 15);
-		contentPane.add(lblNewLabel);
 		
-		lblInput = new JLabel("Input 2");
-		lblInput.setHorizontalAlignment(SwingConstants.CENTER);
-		lblInput.setBounds(230, 35, 180, 15);
-		contentPane.add(lblInput);
 		
-		lblOutput = new JLabel("output");
-		lblOutput.setHorizontalAlignment(SwingConstants.CENTER);
-		lblOutput.setBounds(130, 175, 180, 20);
-		contentPane.add(lblOutput);
+		frame.setContentPane(panel);
+		frame.setVisible(true);
+		
+		
 	}
 
 }
